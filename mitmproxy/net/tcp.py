@@ -118,7 +118,7 @@ class Reader(_FileLike):
                 data = self.o.read(rlen)
             except SSL.ZeroReturnError:
                 # TLS connection was shut down cleanly
-                break
+                continue
             except (SSL.WantWriteError, SSL.WantReadError):
                 # From the OpenSSL docs:
                 # If the underlying BIO is non-blocking, SSL_read() will also return when the
